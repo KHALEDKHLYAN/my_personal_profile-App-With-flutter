@@ -14,20 +14,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
+      appBar: PreferredSize(
+        
+        preferredSize: Size.fromHeight(150),
+        child: AppBar(
         backgroundColor: Colors.transparent,
+        // bottom: TabBar(tabs: ),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
+              padding: EdgeInsets.only(left: 20, top: 30),
               icon: Image.asset(
-                  'assets/svg/menu.png',width: 100, height: 100,), // Use your asset path
+                  'assets/svg/menu.png',width: 200, height: 200,), // Use your asset path
               onPressed: () {
                 Scaffold.of(context).openDrawer();
               },
             );
           },
         ),
-      ),
+      ),),
       drawer: MyCustomDrawer(),
       body: Center(child: Text('Hello Dart')),
     );
